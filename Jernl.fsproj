@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="lib/Models.fs" />
+    <Compile Include="lib/Convert.fs" />
+    <Compile Include="lib/BsonDocConverter.fs" />
+    <Compile Include="lib/Effects.fs" />
+    <Compile Include="lib/JsonWebToken.fs" />
+    <Compile Include="lib/Hash.fs" />
+    <Compile Include="lib/Auth.fs" />
+    <Compile Include="lib/Actions.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="jose-jwt" Version="2.4.0" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="MongoDB.Driver" Version="2.8.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="Suave" Version="2.5.4" />
+  </ItemGroup>
+</Project>

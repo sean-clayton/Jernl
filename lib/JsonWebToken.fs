@@ -3,8 +3,7 @@ module Jernl.JsonWebToken
 open Newtonsoft.Json
 open System.Security.Cryptography
 
-type UserRights = 
-  { UserName : string }
+type UserRights = { UserName: string }
 
 let private createPassPhrase() = 
     let crypto = RandomNumberGenerator.Create()

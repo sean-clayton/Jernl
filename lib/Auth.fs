@@ -7,18 +7,13 @@ open Jernl.Effects.DB
 open BsonDocConverter
 open Newtonsoft.Json
 
-type LoginDetails = {
-    email: string;
-    password: string;
-}
+type LoginDetails =
+    { email: string
+      password: string }
 
-type Login = {
-    user: LoginDetails;
-}
+type Login = { user: LoginDetails }
 
-type Token = {
-    token: string
-}
+type Token = { token: string }
 
 let unauthorized s = Suave.Response.response HTTP_401 s
 

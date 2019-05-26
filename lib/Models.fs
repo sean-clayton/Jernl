@@ -10,143 +10,121 @@ module Models =
         | Limit of int
         | Offset of int
         | Neither
-    
-    type UserRequestDetails = {
-        username : string;
-        email : string;
-        password : string;
-        image : string;
-        bio : string;
-        hash : string;
-    }
 
-    type UserRequest = {
-        user : UserRequestDetails
-    }
+    type UserRequestDetails =
+        { username : string
+          email : string
+          password : string
+          image : string
+          bio : string
+          hash : string }
 
-    type AuthenticatedUserDetails = {
-        email : string;
-        token : string;
-        username : string;
-        bio : string;
-        image : string;
-    }
+    type UserRequest =
+        { user : UserRequestDetails }
 
-    type AuthenticatedUser = {
-        user : AuthenticatedUserDetails;
-    }
+    type AuthenticatedUserDetails =
+        { email : string
+          token : string
+          username : string
+          bio : string
+          image : string }
 
-    type UserDetails = {
-        email : string;
-        token : string;
-        username : string;
-        bio : string;
-        image : string;
-        passwordhash : string;
-        favorites : string array;
-        following : string array;
-    }
+    type AuthenticatedUser =
+        { user : AuthenticatedUserDetails }
 
-    type User = {
-        user : UserDetails;
-        [<BsonId>]
-        [<BsonRepresentation(BsonType.ObjectId)>]
-        Id : string;
-    }
+    type UserDetails =
+        { email : string
+          token : string
+          username : string
+          bio : string
+          image : string
+          passwordhash : string
+          favorites : string array
+          following : string array }
 
-    type ProfileDetails = {
-        username : string;
-        bio : string;
-        image : string;
-        following : bool;
-    }
+    type User =
+        { user : UserDetails
+          [<BsonId>]
+          [<BsonRepresentation(BsonType.ObjectId)>]
+          Id : string }
 
-    type Profile = {
-        profile : ProfileDetails;
-    }
+    type ProfileDetails =
+        { username : string
+          bio : string
+          image : string
+          following : bool }
 
-    type ArticleDetails = {
-        slug : string;
-        title : string;
-        description : string;
-        body : string;
-        createdAt : DateTime
-        updatedAt : DateTime
-        [<JsonIgnore>]
-        favoriteIds : string array;
-        favorited : bool;
-        favoritesCount : uint32;
-        author : ProfileDetails;
-        tagList : string array;
-    }
+    type Profile =
+        { profile : ProfileDetails }
 
-    type Article = {
-        article : ArticleDetails;
-        [<BsonId>]
-        [<BsonRepresentation(BsonType.ObjectId)>]
-        Id : string;
-    }
+    type ArticleDetails =
+        { slug : string
+          title : string
+          description : string
+          body : string
+          createdAt : DateTime
+          updatedAt : DateTime
+          [<JsonIgnore>]
+          favoriteIds : string array
+          favorited : bool
+          favoritesCount : uint32
+          author : ProfileDetails
+          tagList : string array }
 
-    type Articles = {
-       articles : ArticleDetails array;
-       articlesCount : uint32;
-    }
+    type Article =
+        { article : ArticleDetails
+          [<BsonId>]
+          [<BsonRepresentation(BsonType.ObjectId)>]
+          Id : string }
 
-    type CommentDetails = {
-        [<JsonIgnore>]
-        articleId : string;
-        createdAt : DateTime;
-        updatedAt : DateTime;
-        body : string;
-    }
+    type Articles =
+        { articles : ArticleDetails array
+          articlesCount : uint32 }
 
-    type CommentBody = {
-        body : string;
-    }
+    type CommentDetails =
+        { [<JsonIgnore>]
+          articleId : string
+          createdAt : DateTime
+          updatedAt : DateTime
+          body : string }
 
-    type ArticleComment = {
-        comment : CommentBody;
-    }
+    type CommentBody =
+        { body : string }
 
-    type RequestCommentDetails = {
-        body : string;
-    }
+    type ArticleComment =
+        { comment : CommentBody }
 
-    type RequestComment = {
-        comment : RequestCommentDetails
-    }
+    type RequestCommentDetails =
+        { body : string }
 
-    type Comment = {
-        [<BsonId>]
-        [<BsonRepresentation(BsonType.ObjectId)>]
-        [<JsonIgnore>]
-        Id : string;
-        comment : CommentDetails;
-    }
+    type RequestComment =
+        { comment : RequestCommentDetails }
 
-    type Comments = {
-        comments : CommentDetails array;
-    }
+    type Comment =
+        { [<BsonId>]
+          [<BsonRepresentation(BsonType.ObjectId)>]
+          [<JsonIgnore>]
+          Id : string
+          comment : CommentDetails }
 
-    type TagCloud = {
-        tags : string array;
-    }
+    type Comments =
+        { comments : CommentDetails array }
 
-    type ErrorBody = {
-        body : string array;
-    }
+    type TagCloud =
+        { tags : string array }
 
-    type ErrorReport = {
-        errors : ErrorBody;
-    }
+    type ErrorBody =
+        { body : string array }
 
-    type ArticleOptions = {
-        Limit : int;
-        Tag : string;
-        Author : string;
-        Favorited : string;
-        Offset : int;
-    }
+    type ErrorReport =
+        { errors : ErrorBody }
+
+    type ArticleOptions =
+        { Limit : int
+          Tag : string
+          Author : string
+          Favorited : string
+          Offset : int }
 
     [<Literal>]
     let UsernameField = "username"

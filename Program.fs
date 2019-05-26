@@ -70,7 +70,7 @@ let app (dbClient: IMongoDatabase) =
             RequestErrors.NOT_FOUND "Route not found"
         ]
 
-        path "/" >=> (Successful.OK """{"status": "ok"}""")
+        path "/" >=> Successful.OK """{"status": "ok"}"""
     ] >=> setMimeType "application/json; charset=utf-8"
 
 [<EntryPoint>]
